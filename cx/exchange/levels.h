@@ -20,28 +20,18 @@
  * SOFTWARE.
  */
 
-#ifndef CX_DEPTH_H
-#define CX_DEPTH_H
-
-#include <string>
-#include <memory>
+#ifndef CX_LEVELS_H
+#define CX_LEVELS_H
 
 namespace cx
 {
 
-class depth
-{
-public:
-    typedef std::shared_ptr<depth> ptr;
-
-    explicit depth() : bids{}, asks{}
-    {}
-
-    std::string exchange;
-    std::string symbol;
-    std::array<double, 10> bids;
-    std::array<double, 10> asks;
-};
+namespace level1 { enum level { bid = 0, bid_size = 1, ask = 0, ask_size = 1 }; }
+namespace level2 { enum level { bid = 2, bid_size = 3, ask = 2, ask_size = 3 }; }
+namespace level3 { enum level { bid = 4, bid_size = 5, ask = 4, ask_size = 5 }; }
+namespace level4 { enum level { bid = 6, bid_size = 7, ask = 6, ask_size = 7 }; }
+namespace level5 { enum level { bid = 8, bid_size = 9, ask = 8, ask_size = 9 }; }
 
 }
-#endif //CX_DEPTH_H
+
+#endif //CX_LEVELS_H
