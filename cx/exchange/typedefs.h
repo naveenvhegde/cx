@@ -20,26 +20,19 @@
  * SOFTWARE.
  */
 
-#ifndef CX_MARKET_H
-#define CX_MARKET_H
+#ifndef CX_TYPEDEFS_H
+#define CX_TYPEDEFS_H
 
+#include <memory>
+#include <vector>
 #include <string>
+#include "nlohmann/json.hpp"
 
 namespace cx
 {
 
-class Market
-{
-public:
-    typedef std::shared_ptr<Market> Ptr;
-
-    explicit Market()
-    {}
-
-    json_ptr native;
-    std::string exchange;
-    std::string symbol;
-};
+using json = nlohmann::json;
+typedef std::shared_ptr<json> json_ptr;
 
 }
-#endif //CX_MARKET_H
+#endif //CX_TYPEDEFS_H

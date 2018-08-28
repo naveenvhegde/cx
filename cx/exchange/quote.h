@@ -25,6 +25,7 @@
 
 #include <string>
 #include <memory>
+#include "typedefs.h"
 
 namespace cx
 {
@@ -37,6 +38,7 @@ public:
     explicit Quote() : bid(0.0), ask(0.0), last(0.0), high(0.0), low(0.0)
     {}
 
+    json_ptr native;
     std::string exchange;
     std::string symbol;
     double bid;

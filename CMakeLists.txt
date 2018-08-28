@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 14)
 
 include_directories(${CPR_INCLUDE_DIRS})
 
-set(JSON_INCLUDE_DIRS dependencies/json/include)
+set(JSON_INCLUDE_DIRS deps/json/include)
 include_directories(${JSON_INCLUDE_DIRS})
 
 set(EXCHANGE_INCLUDE_DIRS cx/exchange)

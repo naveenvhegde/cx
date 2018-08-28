@@ -25,6 +25,7 @@
 
 #include <string>
 #include <memory>
+#include "typedefs.h"
 
 namespace cx
 {
@@ -37,6 +38,7 @@ public:
     explicit Depth() : bids{}, asks{}
     {}
 
+    json_ptr native;
     std::string exchange;
     std::string symbol;
     std::array<double, 10> bids;
