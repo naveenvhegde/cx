@@ -21,9 +21,10 @@
  */
 
 #include "binance.h"
+#include <cpr/cpr.h>
 
-namespace cx
-{
+using namespace cx;
+using namespace std;
 
 Binance::Binance() : ExchangeImpl(std::string("binance"))
 {}
@@ -41,4 +42,26 @@ Depth::Ptr Binance::depth() const {
     return cx::Depth::Ptr();
 }
 
+json_ptr Binance::ping() const
+{
+    auto future = cpr::GetAsync(cpr::Url{m_url + "/api/v1/ping"}, cpr::VerifySsl{false});
+    auto r = future.get();
+    auto response = make_shared<json>(json::parse(r.text));
+    return response;
+}
+
+json_ptr Binance::time() const
+{
+    auto future = cpr::GetAsync(cpr::Url{m_url + "/api/v1/time"}, cpr::VerifySsl{false});
+    auto r = future.get();
+    auto response = make_shared<json>(json::parse(r.text));
+    return response;
+}
+
+json_ptr Binance::exchange_info() const
+{
+    auto future = cpr::GetAsync(cpr::Url{m_url + "/api/v1/exchangeInfo"}, cpr::VerifySsl{false});
+    auto r = future.get();
+    auto response = make_shared<json>(json::parse(r.text));
+    return response;
 }

@@ -8,6 +8,10 @@ using namespace cx;
 int main()
 {
     auto binance = Binance();
+    std::cout << *binance.ping() << std::endl;
+    std::cout << *binance.time() << std::endl;
+    std::cout << *binance.exchange_info() << std::endl;
+
     auto depth_ptr = binance.depth();
 
     auto _bittrex = Bittrex();

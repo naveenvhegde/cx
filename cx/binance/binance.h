@@ -41,6 +41,17 @@ public:
     Quote::Ptr quote() const override;
 
     Depth::Ptr depth() const override;
+
+    // Binance specific methods
+    json_ptr ping() const;
+
+    json_ptr time() const;
+
+    json_ptr exchange_info() const;
+
+private:
+
+    std::string m_url = "https://api.binance.com";
 };
 
 }

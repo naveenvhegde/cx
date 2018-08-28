@@ -23,11 +23,11 @@ add_subdirectory(cx/exchange)
 add_subdirectory(cx/binance)
 add_subdirectory(cx/bittrex)
 
-set(CX_SOURCE_FILES main.cpp cx/exchange/exchange_impl.h cx/exchange/market.h)
+set(CX_SOURCE_FILES main.cpp)
 
 add_executable(${PROJECT_NAME}_binary ${CX_SOURCE_FILES})
 target_link_libraries(${PROJECT_NAME}_binary
-        pthread
-        binance
-        bittrex
-        )
+    pthread
+    binance
+    bittrex
+    )
