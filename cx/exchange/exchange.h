@@ -27,22 +27,24 @@
 #include "constants.h"
 #include "quote.h"
 #include "depth.h"
+#include "market.h"
 
 namespace cx
 {
 
 template <typename exchange_type>
-class exchange
+class Exchange
 {
 public:
-    typedef typename std::shared_ptr<exchange<exchange_type>> ptr;
+    typedef typename std::shared_ptr<Exchange<exchange_type>> Ptr;
 
-    virtual std::vector<std::string> markets() const = 0;
+    virtual std::vector<Market::Ptr> markets() const = 0;
 
-    virtual quote::ptr quote() const = 0;
+    virtual Quote::Ptr quote() const = 0;
 
-    virtual depth::ptr depth() const = 0;
+    virtual Depth::Ptr depth() const = 0;
 };
 
 }
+
 #endif //CX_EXCHANGE_H

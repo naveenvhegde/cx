@@ -29,12 +29,12 @@
 namespace cx
 {
 
-class quote
+class Quote
 {
 public:
-    typedef std::shared_ptr<quote> ptr;
+    typedef std::shared_ptr<Quote> Ptr;
 
-    explicit quote() : bid(0.0), ask(0.0), last(0.0), high(0.0), low(0.0)
+    explicit Quote() : bid(0.0), ask(0.0), last(0.0), high(0.0), low(0.0)
     {}
 
     std::string exchange;

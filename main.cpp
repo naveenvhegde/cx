@@ -7,15 +7,15 @@ using namespace cx;
 
 int main()
 {
-    auto _binance = binance();
-    auto binance_depth = _binance.depth();
+    auto binance = Binance();
+    auto depth_ptr = binance.depth();
 
-    auto _bittrex = bittrex();
-    auto bittrex_depth = _bittrex.depth();
+    auto _bittrex = Bittrex();
+    depth_ptr = _bittrex.depth();
 
-    auto _depth = depth();
-    const auto& bids = _depth.bids;
-    
+    auto depth = Depth();
+    const auto& bids = depth.bids;
+
     auto bid1 = bids[level1::bid];
     auto bid2 = bids[level2::bid];
     auto bid3 = bids[level3::bid];

@@ -20,29 +20,27 @@
  * SOFTWARE.
  */
 
-#ifndef CX_BINANCE_H
-#define CX_BINANCE_H
+#ifndef CX_EXCHANGE_IMPL_H
+#define CX_EXCHANGE_IMPL_H
 
-#include <string>
-#include <exchange_impl.h>
+#include "exchange.h"
 
 namespace cx
 {
 
-class Binance : public ExchangeImpl<Binance>
+template <typename exchange_type>
+class ExchangeImpl : public Exchange<exchange_type>
 {
 public:
-    typedef std::shared_ptr<Binance> ptr;
+    typedef typename std::shared_ptr<ExchangeImpl<exchange_type>> Ptr;
 
-    Binance();
+    ExchangeImpl(const std::string& id) : m_id(id)
+    {}
 
-    std::vector<Market::Ptr> markets() const override;
-
-    Quote::Ptr quote() const override;
-
-    Depth::Ptr depth() const override;
+private:
+    std::string m_id;
 };
 
 }
 
-#endif //CX_BINANCE_H
+#endif //CX_EXCHANGE_IMPL_H

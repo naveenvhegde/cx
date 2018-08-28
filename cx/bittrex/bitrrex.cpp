@@ -24,17 +24,17 @@
 
 using namespace cx;
 
-bittrex::bittrex()
+Bittrex::Bittrex() : ExchangeImpl(std::string("bittrex"))
 {}
 
-std::vector<std::string> bittrex::markets() const {
-    return std::vector<std::string>();
+std::vector<Market::Ptr> Bittrex::markets() const {
+    return std::vector<Market::Ptr>();
 }
 
-quote::ptr bittrex::quote() const {
-    return cx::quote::ptr();
+Quote::Ptr Bittrex::quote() const {
+    return cx::Quote::Ptr();
 }
 
-depth::ptr bittrex::depth() const {
-    return cx::depth::ptr();
+Depth::Ptr Bittrex::depth() const {
+    return cx::Depth::Ptr();
 }

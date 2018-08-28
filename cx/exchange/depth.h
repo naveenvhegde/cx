@@ -29,12 +29,12 @@
 namespace cx
 {
 
-class depth
+class Depth
 {
 public:
-    typedef std::shared_ptr<depth> ptr;
+    typedef std::shared_ptr<Depth> Ptr;
 
-    explicit depth() : bids{}, asks{}
+    explicit Depth() : bids{}, asks{}
     {}
 
     std::string exchange;

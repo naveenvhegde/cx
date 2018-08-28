@@ -24,23 +24,23 @@
 #define CX_BITTREX_H
 
 #include <string>
-#include <exchange.h>
+#include <exchange_impl.h>
 
 namespace cx
 {
 
-class bittrex : public exchange<bittrex>
+class Bittrex : public ExchangeImpl<Bittrex>
 {
 public:
-    typedef std::shared_ptr<bittrex> ptr;
+    typedef std::shared_ptr<Bittrex> Ptr;
 
-    bittrex();
+    Bittrex();
 
-    std::vector<std::string> markets() const override;
+    std::vector<Market::Ptr> markets() const override;
 
-    quote::ptr quote() const override;
+    Quote::Ptr quote() const override;
 
-    depth::ptr depth() const override;
+    Depth::Ptr depth() const override;
 };
 
 }

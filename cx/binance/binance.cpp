@@ -25,19 +25,20 @@
 namespace cx
 {
 
-binance::binance()
+Binance::Binance() : ExchangeImpl(std::string("binance"))
 {}
 
-std::vector<std::string> binance::markets() const {
-    return std::vector<std::string>();
+std::vector<Market::Ptr> Binance::markets() const
+{
+    return std::vector<Market::Ptr>();
 }
 
-quote::ptr binance::quote() const {
-    return cx::quote::ptr();
+Quote::Ptr Binance::quote() const {
+    return cx::Quote::Ptr();
 }
 
-depth::ptr binance::depth() const {
-    return cx::depth::ptr();
+Depth::Ptr Binance::depth() const {
+    return cx::Depth::Ptr();
 }
 
 }
